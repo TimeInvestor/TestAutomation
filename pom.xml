@@ -1,30 +1,61 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.org.app</groupId>
-  <artifactId>TestAutomation</artifactId>
-  <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <name>TestAutomation</name>
-  <url>http://maven.apache.org</url>
-  
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-	<dependency>
-		<groupId>org.testng</groupId>
-		<artifactId>testng</artifactId>
-		<version>6.8.8</version>
-	</dependency>
-	<dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-java</artifactId>
-        <version>2.44.0</version>
-    </dependency>
-  </dependencies>
-  
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.org.app</groupId>
+	<artifactId>TestAutomation</artifactId>
+	<packaging>jar</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>TestAutomation</name>
+	<url>http://maven.apache.org</url>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.8.8</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>2.44.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.6</version>
+		</dependency>
+	</dependencies>
+
+	<properties>
+		<suiteXmlFile>src/test/resources/testsuite/componenttest.xml</suiteXmlFile>
+		<skipTests>false</skipTests>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.17</version>
+				<configuration>
+					<suiteXmlFiles>
+						<suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+					</suiteXmlFiles>
+					<skipTests>${skipTests}</skipTests>
+					<testFailureIgnore>true</testFailureIgnore>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
