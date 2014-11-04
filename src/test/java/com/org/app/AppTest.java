@@ -3,22 +3,36 @@ package com.org.app;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.org.testinfra.AbstractTest;
 import com.org.testinfra.JDBCUtils;
 
 /**
+ * This is a sample test class. <br/>
+ * It extends {@link AbstractTest}. <br/>
+ * It is driven by TestNG. <br/>
+ * 
  * @author Zheng, Lisheng
  * 
  */
 public class AppTest extends AbstractTest {
 
+    /**
+     * This is a constructor which provides full class name to super class
+     * {@code AbstractTest} to get {@code logger} initiated.
+     */
     public AppTest() {
 	super(AppTest.class);
 	logger.info(">>> Logger name: " + logger.getName());
     }
 
+    /**
+     * One TestNG test method.<br/>
+     * It has been assigned to test groups "functest" and "checkintest".<br/>
+     * It tests jdbc connection to local mysql database.
+     */
     @Test(groups = { "functest", "checkintest" })
     public void testMethod1() {
 	logger.entry();
@@ -42,19 +56,10 @@ public class AppTest extends AbstractTest {
 	    }
 
 	} catch (ClassNotFoundException | SQLException e) {
-	    // TODO Auto-generated catch block
-	    e.printStackTrace();
+	    Assert.fail("testMethod1 is failling bcs of following issue:", e);
 	}
 
 	logger.info("testMethod1 - Done");
 	logger.exit();
-    }
-
-    @Test(groups = { "functest", "checkintest" })
-    public void testMethod2() {
-    }
-
-    @Test(groups = { "functest" })
-    public void testMethod3() {
     }
 }
