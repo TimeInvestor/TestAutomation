@@ -3,11 +3,14 @@ package com.org.app;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.org.testinfra.AbstractTest;
 import com.org.testinfra.JDBCUtils;
+import com.org.testinfra.RestClient;
 
 /**
  * This is a sample test class. <br/>
@@ -60,6 +63,34 @@ public class AppTest extends AbstractTest {
 	}
 
 	logger.info("testMethod1 - Done");
+	logger.exit();
+    }
+
+    /**
+     * One TestNG test method.<br/>
+     * It has been assigned to test groups "functest" and "checkintest".<br/>
+     * It tests {@code RestClient}.
+     */
+    @Test(groups = { "functest", "checkintest" })
+    public void testMethod2() {
+	logger.entry();
+	logger.info("Host Name: " + hostName);
+
+	String url = "https://" + hostName + ":12970";
+
+	JSONObject jsonObj = new JSONObject();
+	jsonObj.put("name", "KYC");
+	jsonObj.put("state", "COMPLETED");
+	jsonObj.put("compliance_region", "GB");
+	jsonObj.put("version", 1);
+
+	JSONArray requestInJson = new JSONArray();
+	requestInJson.put(jsonObj);
+	logger.debug(">>> request In JsonArray:\n" + requestInJson);
+
+	RestClient restClient = new RestClient(url, requestInJson, true);
+
+	logger.info("testMethod2 - Done");
 	logger.exit();
     }
 }
