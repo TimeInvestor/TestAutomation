@@ -2,7 +2,7 @@
 <suite thread-count="1" verbose="1" name="Component Test" skipfailedinvocationcounts="false" 
 	junit="false" parallel="tests" data-provider-thread-count="1" annotations="JDK">
 	
-	<parameter name="hostName" value="ec2-174-129-24-92.compute-1.amazonaws.com" />
+	<parameter name="hostName" value="stage2m030.qa.paypal.com" />
 	
 	<test verbose="2" name="component_name" annotations="JDK" preserve-order="true" parallel="false">
        <classes>
