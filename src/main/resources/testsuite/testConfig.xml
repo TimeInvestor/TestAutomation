@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="2" name="Integration Test" parallel="classes" data-provider-thread-count="10" thread-count="10">
+	
+	<parameter name="hostName" value="ec2-54-255-166-219.ap-southeast-1.compute.amazonaws.com" />
+	
+	<test name="Test MDC" preserve-order="true">
+       <classes>
+			<class name="com.timeinvestor.testng.TestMDCWithTestNG"/>
+            <class name="com.timeinvestor.testng.TestMDCWithTestNG2"/>
+	   </classes> 
+ 	 </test>
+ 	 
+</suite>

@@ -1,4 +1,4 @@
-package com.org.testinfra;
+package com.timeinvestor.testinfra;
 
 import java.net.MalformedURLException;
 import java.net.URL;

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.org.testinfra;
+package com.timeinvestor.testinfra;
 
 /**
  * Enum represents database names

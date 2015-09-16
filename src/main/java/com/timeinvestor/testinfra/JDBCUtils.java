@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.org.testinfra;
+package com.timeinvestor.testinfra;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
