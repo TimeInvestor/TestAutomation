@@ -42,6 +42,9 @@ public class TestMDCWithTestNG2 extends TestBase {
     @AfterMethod
     private void afterEachTestCase(Object[] testData) {
         logger.info("Finishing test case: " + testData[0] + " - " + testData[1]);
+        
+        /* Clean current thread context to prevent memory leak */
+        ThreadContext.clearAll();
     }
     
     @Test(dataProvider = "test1")
@@ -65,9 +68,5 @@ public class TestMDCWithTestNG2 extends TestBase {
         TestHelper.prettyPrint(logger, "TestMDCWithTestNG 2 - testMethod2 - prettyPrint - testCaseId: " + testCaseId);
     }
     
-//    @AfterClass
-//    private void cleanup() {
-//        ThreadContext.clearAll();
-//    }
     
 }

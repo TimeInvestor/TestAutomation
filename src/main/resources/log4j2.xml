@@ -2,7 +2,7 @@
 <Configuration status="WARN">
   <Appenders>
     <Console name="Console" target="SYSTEM_OUT">
-      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level - %X{testCaseId}@%X{testClass} - %logger{1} - %msg%n"/>
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level - %X{testCaseId}_%X{testClass} - %logger{1} - %msg%n"/>
     </Console>
   </Appenders>
   <Loggers>
@@ -16,7 +16,7 @@
 <!-- DEBUG -->
 <!-- TRACE (least specific, a lot of data) -->
 <!-- ALL (least specific, all data) -->
-    <Root level="trace">
+    <Root level="DEBUG">
       <AppenderRef ref="Console"/>
     </Root>
   </Loggers>
